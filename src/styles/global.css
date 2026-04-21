@@ -1,0 +1,109 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif;
+  color: #2b2b2b;
+  background: linear-gradient(135deg, #ffd6e7 0%, #ffe8cc 50%, #c9e4ff 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #ff7d9b;
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1.25rem 3rem;
+  gap: 1.75rem;
+  position: relative;
+}
+
+.app::before,
+.app::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app::before {
+  width: 340px;
+  height: 340px;
+  background: #ffb8d8;
+  top: -80px;
+  left: -80px;
+  animation: float-blob 14s ease-in-out infinite;
+}
+
+.app::after {
+  width: 400px;
+  height: 400px;
+  background: #b8dcff;
+  bottom: -120px;
+  right: -120px;
+  animation: float-blob 18s ease-in-out infinite reverse;
+}
+
+@keyframes float-blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.1); }
+}
+
+.app > * {
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(90deg, #ff6fa8, #ff9f43, #6fb5ff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: title-shine 6s linear infinite;
+  text-align: center;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  color: #6b5870;
+  text-align: center;
+}
+
+@keyframes title-shine {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
