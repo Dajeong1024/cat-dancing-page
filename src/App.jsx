@@ -1,5 +1,6 @@
 import DancingCat from './components/DancingCat';
 import AnimationControls from './components/AnimationControls';
+import VisitorCounter from './components/VisitorCounter';
 import useAnimation from './hooks/useAnimation';
 
 export default function App() {
@@ -20,6 +21,8 @@ export default function App() {
         onSelectMode={selectMode}
         onChangeSpeed={changeSpeed}
       />
+
+      <VisitorCounter />
     </main>
   );
 }
